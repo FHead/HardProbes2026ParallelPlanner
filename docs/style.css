@@ -7,19 +7,19 @@
   --text-muted: #65584b;
   --accent: #9b4d24;
   --jet: #c96a2f;
-  --jet-soft: #f4d1bd;
+  --jet-soft: #f8e4d8;
   --highpt: #2c7a78;
-  --highpt-soft: #cce8e2;
+  --highpt-soft: #e0f0ec;
   --hf: #8b3d5e;
-  --hf-soft: #efd0db;
+  --hf-soft: #f6e1e8;
   --npdf-saturation-early: #536b2d;
-  --npdf-saturation-early-soft: #dce7c7;
+  --npdf-saturation-early-soft: #e8efd9;
   --em: #3769b3;
-  --em-soft: #d4e3fb;
+  --em-soft: #e4edfc;
   --future: #8758a6;
-  --future-soft: #e6d8f2;
+  --future-soft: #efe5f8;
   --ai-ml: #7a5b24;
-  --ai-ml-soft: #ecdfc0;
+  --ai-ml-soft: #f3ead3;
   --drop-zone: #efe7d6;
   --shadow: 0 18px 50px rgba(60, 43, 24, 0.12);
 }
@@ -289,12 +289,12 @@ button:hover,
   position: relative;
   width: 100%;
   min-height: 92px;
-  border: 1px solid rgba(39, 31, 23, 0.08);
+  border: 1px solid rgba(39, 31, 23, 0.16);
   border-left-width: 10px;
   border-radius: 10px;
   background: #fffdfa;
   padding: 12px 14px;
-  box-shadow: 0 12px 24px rgba(60, 43, 24, 0.09);
+  box-shadow: 2px 5px 5px rgba(60, 43, 24, 0.09);
   cursor: grab;
 }
 
@@ -330,49 +330,56 @@ button:hover,
 
 .contribution-card.is-drop-before {
   box-shadow:
-    0 12px 24px rgba(60, 43, 24, 0.09),
+    2px 5px 5px rgba(60, 43, 24, 0.09),
     0 -4px 0 0 var(--accent);
 }
 
 .contribution-card.is-drop-after {
   box-shadow:
-    0 12px 24px rgba(60, 43, 24, 0.09),
+    2px 5px 5px rgba(60, 43, 24, 0.09),
     0 4px 0 0 var(--accent);
 }
 
 .contribution-card.jet {
+  border-color: var(--jet);
   border-left-color: var(--jet);
-  background: linear-gradient(180deg, #fff9f5 0%, var(--jet-soft) 140%);
+  background: var(--jet-soft);
 }
 
 .contribution-card.highpt {
+  border-color: var(--highpt);
   border-left-color: var(--highpt);
-  background: linear-gradient(180deg, #f8fffd 0%, var(--highpt-soft) 140%);
+  background: var(--highpt-soft);
 }
 
 .contribution-card.hf {
+  border-color: var(--hf);
   border-left-color: var(--hf);
-  background: linear-gradient(180deg, #fff9fb 0%, var(--hf-soft) 140%);
+  background: var(--hf-soft);
 }
 
 .contribution-card.npdf-saturation-early {
+  border-color: var(--npdf-saturation-early);
   border-left-color: var(--npdf-saturation-early);
-  background: linear-gradient(180deg, #fbfff7 0%, var(--npdf-saturation-early-soft) 140%);
+  background: var(--npdf-saturation-early-soft);
 }
 
 .contribution-card.em {
+  border-color: var(--em);
   border-left-color: var(--em);
-  background: linear-gradient(180deg, #f8fbff 0%, var(--em-soft) 140%);
+  background: var(--em-soft);
 }
 
 .contribution-card.future {
+  border-color: var(--future);
   border-left-color: var(--future);
-  background: linear-gradient(180deg, #fcf8ff 0%, var(--future-soft) 140%);
+  background: var(--future-soft);
 }
 
 .contribution-card.ai-ml {
+  border-color: var(--ai-ml);
   border-left-color: var(--ai-ml);
-  background: linear-gradient(180deg, #fffdf7 0%, var(--ai-ml-soft) 140%);
+  background: var(--ai-ml-soft);
 }
 
 .card-id {
