@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parallel Program Planner</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Parallel Program</p>
+          <h1>Oral Contribution Planner</h1>
+          <p class="summary">
+            Drag accepted oral contributions between columns and rows, then export or import the saved layout.
+          </p>
+        </div>
+        <div class="actions">
+          <button id="compact-button" type="button">Shift Up Columns</button>
+          <button id="export-button" type="button">Export Layout</button>
+          <label class="import-button" for="import-input">Import Layout</label>
+          <input id="import-input" type="file" accept="application/json">
+          <button id="reset-button" type="button">Reset Layout</button>
+        </div>
+      </header>
+
+      <section class="legend" aria-label="Track colors">
+        <span class="legend-item"><span class="legend-chip jet"></span>Jet track</span>
+        <span class="legend-item"><span class="legend-chip highpt"></span>High-momentum hadrons track</span>
+        <span class="legend-item"><span class="legend-chip hf"></span>Heavy flavor track</span>
+        <span class="legend-item"><span class="legend-chip npdf-saturation-early"></span>nPDF/saturation/early track</span>
+        <span class="legend-item"><span class="legend-chip em"></span>EM track</span>
+        <span class="legend-item"><span class="legend-chip future"></span>Future track</span>
+        <span class="legend-item"><span class="legend-chip ai-ml"></span>AI/ML track</span>
+        <span class="legend-item"><span class="legend-badge exp">Exp</span>Experimental talk</span>
+        <span class="legend-item"><span class="legend-badge theory">Th</span>Theory talk</span>
+      </section>
+
+      <section class="status-bar">
+        <p id="status-message">Loading contributions...</p>
+      </section>
+
+      <section class="grid-wrap">
+        <div id="schedule-grid" class="schedule-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="card-template">
+      <article class="contribution-card" draggable="true">
+        <div class="card-badge"></div>
+        <div class="card-id"></div>
+        <div class="card-title"></div>
+      </article>
+    </template>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
