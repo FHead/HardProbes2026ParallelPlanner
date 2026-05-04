@@ -255,6 +255,17 @@ function columnIndex(columnKey) {
   return COLUMN_KEYS.indexOf(columnKey) + 1;
 }
 
+function exportTimestamp() {
+  const now = new Date();
+  const year = String(now.getFullYear());
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+  return `${year}${month}${day}-${hours}${minutes}${seconds}`;
+}
+
 function exportLayout() {
   const payload = contributions.map((item) => ({
     id: item.id,
@@ -269,7 +280,7 @@ function exportLayout() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = "parallel-program-layout.json";
+  link.download = `parallel-program-layout-${exportTimestamp()}.json`;
   link.click();
   URL.revokeObjectURL(url);
   setStatus(`Exported ${payload.length} positions.`);
