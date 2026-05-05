@@ -231,6 +231,13 @@ window.APP_DATA = {
       "talkType": "experimental"
     },
     {
+      "id": "142",
+      "title": "Coupled charm and charmonium transport in a strongly coupled quark-gluon plasma",
+      "track": "HF",
+      "sourceTrack": "Heavy quarks and quarkonia",
+      "talkType": "theory"
+    },
+    {
       "id": "146",
       "title": "Heavy quark drag coefficient using phonon-heavy quark EFT ($\\phi$-EFT)",
       "track": "HF",
@@ -338,6 +345,13 @@ window.APP_DATA = {
     {
       "id": "337",
       "title": "Interplay of Coalescence, Fragmentation and Non-Equilibrium Transport in Heavy-Hadron Formation",
+      "track": "HF",
+      "sourceTrack": "Heavy quarks and quarkonia",
+      "talkType": "theory"
+    },
+    {
+      "id": "341",
+      "title": "Enhanced high-$p_T$ $X(3872)$ Production via Correlated $c\\bar{c}$ Color-Octet Pairs from Jet Fragmentation",
       "track": "HF",
       "sourceTrack": "Heavy quarks and quarkonia",
       "talkType": "theory"
@@ -501,6 +515,13 @@ window.APP_DATA = {
       "title": "Dijet production in DIS at small-x: revisiting and rectifying the eikonal limit",
       "track": "HighPT",
       "sourceTrack": "High-momentum hadrons and correlations",
+      "talkType": "theory"
+    },
+    {
+      "id": "104",
+      "title": "Apples to Apples in Jet Quenching",
+      "track": "Jet",
+      "sourceTrack": "Jet modification and medium response",
       "talkType": "theory"
     },
     {
@@ -940,6 +961,13 @@ window.APP_DATA = {
     {
       "id": "378",
       "title": "Revealing the Cronin effect through Drell Yan in p-A collisions",
+      "track": "nPDF/saturation/early",
+      "sourceTrack": "Nuclear PDFs, saturation, and early-time dynamics",
+      "talkType": "theory"
+    },
+    {
+      "id": "46",
+      "title": "Dijet production in intermediate x at EIC",
       "track": "nPDF/saturation/early",
       "sourceTrack": "Nuclear PDFs, saturation, and early-time dynamics",
       "talkType": "theory"

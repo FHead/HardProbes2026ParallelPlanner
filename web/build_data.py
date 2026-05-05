@@ -17,6 +17,7 @@ TRACK_LABELS = {
     "Future experimental facilities and new techniques": "Future",
     "ML/AI and quantum computing in high-energy nuclear physics": "AI/ML",
 }
+FORCE_INCLUDE_IDS = {"341", "142", "46", "104"}
 
 
 def load_contributions():
@@ -24,9 +25,14 @@ def load_contributions():
         reader = csv.DictReader(handle)
         contributions = []
         for row in reader:
+            contribution_id = row["Id"].strip()
             if row.get("State", "").strip() != "Accepted":
                 continue
-            if row.get("Accepted type", "").strip() != "Oral presentation":
+            is_forced_include = contribution_id in FORCE_INCLUDE_IDS
+            if (
+                row.get("Accepted type", "").strip() != "Oral presentation"
+                and not is_forced_include
+            ):
                 continue
 
             accepted_track = row.get("Accepted track", "").strip()
@@ -37,7 +43,7 @@ def load_contributions():
 
             contributions.append(
                 {
-                    "id": row["Id"].strip(),
+                    "id": contribution_id,
                     "title": row["Title"].strip(),
                     "track": TRACK_LABELS[track],
                     "sourceTrack": track,

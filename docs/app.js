@@ -31,6 +31,7 @@ const TRACK_DEFAULT_COLUMNS = {
   Future: "future",
   "AI/ML": "ai-ml",
 };
+const FIRST_COLUMN_OVERRIDE_IDS = new Set(["341", "142", "46", "104"]);
 const STORAGE_KEY = "parallel-program-layout";
 const TRACK_MIGRATION_KEY = "parallel-program-track-columns-migrated-v1";
 const STATUS_EL = document.getElementById("status-message");
@@ -59,16 +60,31 @@ function slugTrack(track) {
 }
 
 function defaultColumnFor(item) {
+  if (FIRST_COLUMN_OVERRIDE_IDS.has(item.id)) {
+    return COLUMN_KEYS[0];
+  }
   return TRACK_DEFAULT_COLUMNS[item.track] || COLUMN_KEYS[0];
 }
 
 function initialPositions(items) {
-  return Object.fromEntries(
-    items.map((item, index) => [
-      item.id,
-      { column: defaultColumnFor(item), row: index + 1, order: 1 },
-    ])
-  );
+  const rowCounts = Object.fromEntries(COLUMN_KEYS.map((column) => [column, 0]));
+  const initial = {};
+  const orderedItems = [
+    ...items.filter((item) => !FIRST_COLUMN_OVERRIDE_IDS.has(item.id)),
+    ...items.filter((item) => FIRST_COLUMN_OVERRIDE_IDS.has(item.id)),
+  ];
+
+  orderedItems.forEach((item) => {
+    const column = defaultColumnFor(item);
+    rowCounts[column] += 1;
+    initial[item.id] = {
+      column,
+      row: rowCounts[column],
+      order: 1,
+    };
+  });
+
+  return initial;
 }
 
 function layoutRowCount() {
