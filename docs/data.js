@@ -154,13 +154,6 @@ window.APP_DATA = {
       "talkType": "experimental"
     },
     {
-      "id": "10",
-      "title": "Revisiting extremely high energy QED bremsstrahlung in matter",
-      "track": "Future",
-      "sourceTrack": "Future experimental facilities and new techniques",
-      "talkType": "theory"
-    },
-    {
       "id": "127",
       "title": "Identifying Quenched Jets in CMS Using Machine Learning",
       "track": "Future",
@@ -198,13 +191,6 @@ window.APP_DATA = {
     {
       "id": "34",
       "title": "Unified description of longitudinal and transverse parton dynamics in cold nuclear matter",
-      "track": "Future",
-      "sourceTrack": "Future experimental facilities and new techniques",
-      "talkType": "theory"
-    },
-    {
-      "id": "89",
-      "title": "Semiclassical Worldline Methods for High-Energy QCD Beyond the Eikonal Approximation",
       "track": "Future",
       "sourceTrack": "Future experimental facilities and new techniques",
       "talkType": "theory"
@@ -343,13 +329,6 @@ window.APP_DATA = {
       "talkType": "experimental"
     },
     {
-      "id": "337",
-      "title": "Interplay of Coalescence, Fragmentation and Non-Equilibrium Transport in Heavy-Hadron Formation",
-      "track": "HF",
-      "sourceTrack": "Heavy quarks and quarkonia",
-      "talkType": "theory"
-    },
-    {
       "id": "341",
       "title": "Enhanced high-$p_T$ $X(3872)$ Production via Correlated $c\\bar{c}$ Color-Octet Pairs from Jet Fragmentation",
       "track": "HF",
@@ -369,13 +348,6 @@ window.APP_DATA = {
       "track": "HF",
       "sourceTrack": "Heavy quarks and quarkonia",
       "talkType": "experimental"
-    },
-    {
-      "id": "37",
-      "title": "Lindblad-driven recombination of the X(3872) tetraquark",
-      "track": "HF",
-      "sourceTrack": "Heavy quarks and quarkonia",
-      "talkType": "theory"
     },
     {
       "id": "372",
@@ -665,13 +637,6 @@ window.APP_DATA = {
       "talkType": "theory"
     },
     {
-      "id": "272",
-      "title": "Formation time as a probe of early medium effects due to colour coherence",
-      "track": "Jet",
-      "sourceTrack": "Jet modification and medium response",
-      "talkType": "theory"
-    },
-    {
       "id": "281",
       "title": "Charm-hadron elliptic flow from small to large collision systems with ALICE",
       "track": "Jet",
@@ -803,13 +768,6 @@ window.APP_DATA = {
       "track": "Jet",
       "sourceTrack": "Jet modification and medium response",
       "talkType": "experimental"
-    },
-    {
-      "id": "7",
-      "title": "Edge effects in angular jet substructure in heavy ion collisions",
-      "track": "Jet",
-      "sourceTrack": "Jet modification and medium response",
-      "talkType": "theory"
     },
     {
       "id": "77",

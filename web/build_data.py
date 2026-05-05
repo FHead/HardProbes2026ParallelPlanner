@@ -18,6 +18,7 @@ TRACK_LABELS = {
     "ML/AI and quantum computing in high-energy nuclear physics": "AI/ML",
 }
 FORCE_INCLUDE_IDS = {"341", "142", "46", "104"}
+EXCLUDED_IDS = {"7", "37", "337", "272", "10", "89"}
 
 
 def load_contributions():
@@ -26,6 +27,8 @@ def load_contributions():
         contributions = []
         for row in reader:
             contribution_id = row["Id"].strip()
+            if contribution_id in EXCLUDED_IDS:
+                continue
             if row.get("State", "").strip() != "Accepted":
                 continue
             is_forced_include = contribution_id in FORCE_INCLUDE_IDS
