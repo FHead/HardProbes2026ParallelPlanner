@@ -38,6 +38,7 @@ const GRID_EL = document.getElementById("schedule-grid");
 const CARD_TEMPLATE = document.getElementById("card-template");
 const COMPACT_BUTTON = document.getElementById("compact-button");
 const EXPORT_BUTTON = document.getElementById("export-button");
+const EXPORT_MARKDOWN_BUTTON = document.getElementById("export-markdown-button");
 const IMPORT_INPUT = document.getElementById("import-input");
 const RESET_BUTTON = document.getElementById("reset-button");
 
@@ -266,6 +267,28 @@ function exportTimestamp() {
   return `${year}${month}${day}-${hours}${minutes}${seconds}`;
 }
 
+function exportedAtLabel() {
+  const now = new Date();
+  const year = String(now.getFullYear());
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+
+function nonEmptyRowsForColumn(column) {
+  const rows = new Set();
+  for (const item of contributions) {
+    const position = positions[item.id];
+    if (position && position.column === column) {
+      rows.add(position.row);
+    }
+  }
+  return [...rows].sort((left, right) => left - right);
+}
+
 function exportLayout() {
   const payload = contributions.map((item) => ({
     id: item.id,
@@ -284,6 +307,45 @@ function exportLayout() {
   link.click();
   URL.revokeObjectURL(url);
   setStatus(`Exported ${payload.length} positions.`);
+}
+
+function exportMarkdown() {
+  const lines = [
+    "# Parallel program proposal",
+    "",
+    `Exported: ${exportedAtLabel()}`,
+  ];
+
+  for (const column of COLUMN_KEYS) {
+    const rows = nonEmptyRowsForColumn(column);
+    if (rows.length === 0) {
+      continue;
+    }
+
+    const header = COLUMN_LABELS[column];
+    lines.push("", `## ${header}`);
+
+    for (const row of rows) {
+      const occupants = sortedOccupantsAt(column, row);
+      if (occupants.length === 0) {
+        continue;
+      }
+      lines.push("", `### Section ${header}-${row}`, "");
+      occupants.forEach((item, index) => {
+        const badge = item.talkType === "experimental" ? "Exp" : "Th";
+        lines.push(`${index + 1}. [${item.id}][${badge}] ${item.title}`);
+      });
+    }
+  }
+
+  const blob = new Blob([`${lines.join("\n")}\n`], { type: "text/markdown" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `parallel-program-proposal-${exportTimestamp()}.md`;
+  link.click();
+  URL.revokeObjectURL(url);
+  setStatus("Exported Markdown proposal.");
 }
 
 function normalizeImportedLayout(layout) {
@@ -572,6 +634,7 @@ async function init() {
 }
 
 EXPORT_BUTTON.addEventListener("click", exportLayout);
+EXPORT_MARKDOWN_BUTTON.addEventListener("click", exportMarkdown);
 
 COMPACT_BUTTON.addEventListener("click", () => {
   const movedStacks = compactColumns();
