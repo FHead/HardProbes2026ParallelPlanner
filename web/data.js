@@ -239,7 +239,7 @@ window.APP_DATA = {
     },
     {
       "id": "204",
-      "title": "Probing charm quark collectivity through J/\u03c8 elliptic flow in OO collisions with CMS",
+      "title": "Evidence of sequential Y meson suppression in NeNe and OO collisions",
       "track": "HF",
       "sourceTrack": "Heavy quarks and quarkonia",
       "talkType": "experimental"
@@ -414,7 +414,7 @@ window.APP_DATA = {
     },
     {
       "id": "205",
-      "title": "High-pT Triggered Dihadron correlations in OO, NeNe and pO collisions in CMS",
+      "title": "UPC D0 in CMS",
       "track": "HighPT",
       "sourceTrack": "High-momentum hadrons and correlations",
       "talkType": "experimental"
@@ -505,7 +505,7 @@ window.APP_DATA = {
     },
     {
       "id": "132",
-      "title": "The Lund jet plane in OO collisions",
+      "title": "Exploring small-angle emissions in D0-tagged jets in PbPb collisions at 5.02 TeV",
       "track": "Jet",
       "sourceTrack": "Jet modification and medium response",
       "talkType": "experimental"

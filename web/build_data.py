@@ -19,6 +19,11 @@ TRACK_LABELS = {
 }
 FORCE_INCLUDE_IDS = {"341", "142", "46", "104"}
 EXCLUDED_IDS = {"7", "37", "337", "272", "10", "89"}
+TITLE_OVERRIDES = {
+    "204": "Evidence of sequential Y meson suppression in NeNe and OO collisions",
+    "205": "UPC D0 in CMS",
+    "132": "Exploring small-angle emissions in D0-tagged jets in PbPb collisions at 5.02 TeV",
+}
 
 
 def load_contributions():
@@ -47,7 +52,7 @@ def load_contributions():
             contributions.append(
                 {
                     "id": contribution_id,
-                    "title": row["Title"].strip(),
+                    "title": TITLE_OVERRIDES.get(contribution_id, row["Title"].strip()),
                     "track": TRACK_LABELS[track],
                     "sourceTrack": track,
                     "talkType": (
